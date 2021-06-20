@@ -2,7 +2,7 @@
 My CV Online! - https://cv.trungquandev.com
 
 # Demo
-![trungquandev-cv-online](https://raw.githubusercontent.com/trungquan17/nodejs-two-factor-authentication-2fa/master/imagesDemo/nodejs-two-factor-authentication-practice-workflow-trungquandev-02.jpg)
+![trungquandev-cv-online](https://raw.githubusercontent.com/trungquandev/cv.trungquandev.com/master/public/img/demo-cv.png)
 
 ## Signature
 Author: Trung Quân
