@@ -1,0 +1,14 @@
+{
+  "name": "AlertifyJS",
+  "homepage": "https://github.com/MohammadYounes/AlertifyJS",
+  "version": "1.11.1",
+  "_release": "1.11.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.11.1",
+    "commit": "006aa372ae37f09e4ae5dfe475ed397b2f9488e3"
+  },
+  "_source": "https://github.com/MohammadYounes/AlertifyJS.git",
+  "_target": "^1.11.0",
+  "_originalSource": "https://github.com/MohammadYounes/AlertifyJS.git"
+}

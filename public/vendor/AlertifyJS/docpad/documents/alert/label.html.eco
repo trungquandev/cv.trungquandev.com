@@ -1,0 +1,48 @@
+---
+layout: 'default'
+hljs: 	'light'
+component:	'alert'
+prop: 'label'
+propType: 'p'
+label: '{ String }'
+---
+
+<section class="blue">
+    <div class="content">
+        <div class="grid two">
+            <div class="column">
+                <h1> Alert Dialog</h1>
+                An alert dialog is often used if you want to make sure information comes through to the user.
+                When an alert dialog pops up, the user will have to click "OK" to proceed.
+            </div>
+            <div class="right column">
+                <%- @partial('ad') %>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="sponsor">
+    <div class="content">
+        <a href="https://secure.avangate.com/affiliate.php?ACCOUNT=CREATIV&AFFILIATE=105248&PATH=http%3A%2F%2Fwww.creative-tim.com" target="_blank">
+            Creative Tim<img class="sponsor" src="https://s3.amazonaws.com/creativetim_bucket/new_logo.png">
+        </a>
+        Premium Bootstrap themes, templates, UI Kits and more...
+    </div>
+</section>
+<section class="dark">
+    <div class="content">
+        <!--Settings-->
+        <div class="segment has-menu">
+            <%- @partial('segment',false, @getDataItem(@document.component, @document.prop)) %>
+        </div>
+        <!--//Settings-->
+        <%- @partial('menu', true, @getDataItem(@document.component, @document.prop)) %>
+    </div>
+</section>
+<section class="lic">
+    <div class="content">
+        Looking for a commercial license ?  Keep your source code proprietary and <a href="https://www.uplabs.com/posts/alertifyjs" target="_blank"> Buy a Commercial License Today!</a>
+    </div>
+</section>
+
+
