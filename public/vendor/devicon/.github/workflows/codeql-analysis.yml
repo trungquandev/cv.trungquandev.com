@@ -1,0 +1,85 @@
+name: "Code Scanning - Action"
+
+on:
+  push:
+    branches: [master, develop]
+  pull_request:
+    branches: [master, develop]
+  schedule:
+    - cron: 30 1 * * 0 # Runs every Sunday 1:30 am UTC
+
+jobs:
+  CodeQL-Javascript:
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: javascript
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+
+  CodeQL-Python-dot-github:
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        id: setup-python
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f ${{ github.workspace }}/.github/scripts/requirements.txt ];
+          then pip install -r ${{ github.workspace }}/.github/scripts/requirements.txt;
+          fi
+          # Set the `CODEQL-PYTHON` environment variable to the Python executable
+          # that includes the dependencies
+          echo "CODEQL_PYTHON=${{ steps.setup-python.outputs.python-path }}" >> $GITHUB_ENV
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: python
+          setup-python-dependencies: false
+          source-root: .github/
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+
+  CodeQL-Python-rest:
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Find Python files outside the .github folder
+        id: find_files
+        run: |
+          python_files=$(find ${{ github.workspace }} -name "*.py" -type f -not -path '*/\.*' | wc -l)
+          echo "python_files=${python_files}" >> $GITHUB_OUTPUT
+          echo "$python_files Python files were found outside the .github folder."
+
+      - name: Initialize CodeQL
+        if: ${{ steps.find_files.outputs.python_files != '0' }}
+        uses: github/codeql-action/init@v2
+        with:
+          languages: python
+
+      - name: Perform CodeQL Analysis
+        if: ${{ steps.find_files.outputs.python_files != '0' }}
+        uses: github/codeql-action/analyze@v2

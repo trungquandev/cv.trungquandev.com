@@ -1,10 +1,11 @@
 /*!
- * Start Bootstrap - Resume v5.0.2 (https://startbootstrap.com/template-overviews/resume)
  * Updated by Trungquandev's author - https://trungquandev.com
  */
+ /* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
- body {
-  font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+body {
+  font-family: 'Poppins', sans-serif;
   padding-top: 54px;
   color: #34495e;
 }
@@ -22,33 +23,34 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   font-weight: 700;
-  text-transform: uppercase;
   color: #343a40;
 }
 
 h1 {
-  font-size: 6rem;
-  line-height: 5.5rem;
-}
-
-h2 {
   font-size: 3.5rem;
 }
 
-h3 {
-  font-size: 2rem;
+p.lead {
+  font-size: 1.1rem;
+  font-weight: 400;
 }
 
-p.lead {
-  font-size: 1.15rem;
+a.lead-link {
+  font-size: 1.01rem;
+  font-style: italic;
   font-weight: 400;
+}
+
+.flex-aic {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 em.subheading-welcome {
-  font-size: 1.1rem;
-  font-weight: 400;
+  font-size: 1.05rem;
+  font-weight: 500;
 }
 
 img.subheading-icon {
@@ -58,23 +60,34 @@ img.subheading-icon {
 }
 
 .subheading {
-  text-transform: uppercase;
   font-weight: 500;
-  font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .social-icons a {
   display: inline-block;
-  height: 3.5rem;
-  width: 3.5rem;
+  height: 2.2rem;
+  width: 2.2rem;
   background-color: #495057;
   color: #fff !important;
   border-radius: 100%;
   text-align: center;
-  font-size: 1.5rem;
-  line-height: 3.5rem;
-  margin-right: 1rem;
+  font-size: 1rem;
+  line-height: 2.2rem;
+  margin-right: 0.5rem;
+}
+
+.social-icons a.linkedin {
+  background-color: #0D62BC;
+}
+.social-icons a.github {
+  background-color: #000000;
+}
+.social-icons a.facebook {
+  background-color: #0962F7;
+}
+.social-icons a.twitter {
+  background-color: #1C9BE9;
 }
 
 .social-icons a:last-child {
@@ -94,8 +107,8 @@ img.subheading-icon {
 }
 
 #sideNav .navbar-nav .nav-item .nav-link {
-  font-weight: 800;
-  letter-spacing: 0.05rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -175,7 +188,8 @@ section.resume-section .resume-item .resume-date {
     min-height: 100vh;
   }
   section.resume-section .resume-item .resume-date {
-    min-width: 18rem;
+    min-width: 12rem;
+    font-weight: 500;
   }
 }
 
@@ -261,9 +275,114 @@ a:hover, a:focus, a:active {
   animation-duration: 0.6s;
 }
 
+.portfolio-item {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  max-width: 530px;
+  margin: auto auto 1rem;
+  border-radius: 6px;
+}
+.portfolio-item .caption {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(33, 37, 41, 0.6);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.portfolio-item .caption .caption-content {
+  color: #fff;
+  margin: auto 2rem 2rem;
+}
+.portfolio-item .caption .caption-content h2, .portfolio-item .caption .caption-content .h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+.portfolio-item .caption .caption-content p {
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+@media (min-width: 992px) {
+  .portfolio-item {
+    max-width: none;
+    margin: 0;
+  }
+  .portfolio-item .caption {
+    transition: background-color 0.7s, -webkit-clip-path 0.25s ease-out;
+    transition: clip-path 0.25s ease-out, background-color 0.7s;
+    transition: clip-path 0.25s ease-out, background-color 0.7s, -webkit-clip-path 0.25s ease-out;
+    -webkit-clip-path: inset(0px round 6px);
+            clip-path: inset(0px round 6px);
+  }
+  .portfolio-item .caption .caption-content {
+    transition: opacity 0.25s;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-bottom: 5rem;
+  }
+  .portfolio-item img {
+    transition: -webkit-clip-path 0.25s ease-out;
+    transition: clip-path 0.25s ease-out;
+    transition: clip-path 0.25s ease-out, -webkit-clip-path 0.25s ease-out;
+    -webkit-clip-path: inset(-1px round 6px);
+            clip-path: inset(-1px round 6px);
+  }
+  .portfolio-item:hover img {
+    -webkit-clip-path: inset(0.8rem round 6px);
+            clip-path: inset(0.8rem round 6px);
+  }
+  .portfolio-item:hover .caption {
+    background-color: rgba(29, 128, 159, 0.9);
+    -webkit-clip-path: inset(0.8rem round 6px);
+            clip-path: inset(0.8rem round 6px);
+  }
+}
+
 @keyframes zoom {
   from {transform:scale(0)} 
   to {transform:scale(1)}
+}
+
+@keyframes ring {
+  0% { transform: rotateZ(0); }
+  1% { transform: rotateZ(30deg); }
+  3% { transform: rotateZ(-28deg); }
+  5% { transform: rotateZ(34deg); }
+  7% { transform: rotateZ(-32deg); }
+  9% { transform: rotateZ(30deg); color: lighten($--color-primary, 4); }
+  11% { transform: rotateZ(-28deg); }
+  13% { transform: rotateZ(26deg); }
+  15% { transform: rotateZ(-24deg); }
+  17% { transform: rotateZ(22deg); }
+  19% { transform: rotateZ(-20deg); }
+  21% { transform: rotateZ(18deg); }
+  23% { transform: rotateZ(-16deg); }
+  25% { transform: rotateZ(14deg); }
+  27% { transform: rotateZ(-12deg); }
+  29% { transform: rotateZ(10deg); }
+  31% { transform: rotateZ(-8deg); }
+  33% { transform: rotateZ(6deg); }
+  35% { transform: rotateZ(-4deg); }
+  37% { transform: rotateZ(2deg); }
+  39% { transform: rotateZ(-1deg); }
+  41% { transform: rotateZ(1deg); }
+  43% { transform: rotateZ(0); color: $--color-primary; }
+  100% { transform: rotateZ(0); }
+}
+
+.animation-ring {
+  animation: ring 4s .5s ease-in-out infinite;
+}
+
+.the-end-cover {
+  max-width: 700px;
+}
+.the-end-cover > img {
+  width: 100%;
+  height: 100%;
 }
 
 /* 100% Image Width on Smaller Screens */
