@@ -60,8 +60,12 @@ img.subheading-icon {
 }
 
 .subheading {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1.25rem;
+}
+
+.subheading.exp {
+  font-weight: 700;
 }
 
 .social-icons a {
@@ -102,9 +106,65 @@ img.subheading-icon {
   font-size: 3rem;
 }
 
-.dev-icons .list-inline-item i:hover {
-  color: #fa983a;
+/* Armor Grid (Skills) */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px 10px;
+  text-align: center;
+  margin-bottom: 2rem;
 }
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.skill-icon {
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+}
+
+.skill-item {
+  transition: transform 0.2s ease;
+}
+.skill-item:hover {
+  transform: scale(1.2);
+}
+
+/* Abilities Grid */
+.abilities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.ability-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.ability-icon {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.ability-item {
+  transition: transform 0.2s ease;
+}
+.ability-item:hover {
+  transform: scale(1.2);
+}
+
 
 #sideNav .navbar-nav .nav-item .nav-link {
   font-size: 1.1rem;
@@ -169,7 +229,6 @@ img.subheading-icon {
   }
   #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
     display: block;
-    /* color: rgba(255,255,255,.7); */
   }
 }
 
@@ -191,12 +250,24 @@ section.resume-section .resume-item .resume-date {
     min-width: 12rem;
     font-weight: 500;
   }
+  .skill-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .abilities-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
 
 @media (min-width: 992px) {
   section.resume-section {
     padding-top: 3rem !important;
     padding-bottom: 3rem !important;
+  }
+  .skill-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .abilities-grid {
+    grid-template-columns: repeat(8, 1fr);
   }
 }
 
@@ -409,6 +480,11 @@ a:hover, a:focus, a:active {
 .interest-pictures img {
   width: 20%;
   margin-top: 5px;
+}
+
+.last-updated {
+  font-size: 13px;
+  color: rgba(255,255,255,.7)
 }
 
 /* https://codepen.io/carolineartz/pen/VwYwZaP */
