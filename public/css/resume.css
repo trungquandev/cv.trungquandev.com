@@ -448,6 +448,17 @@ a:hover, a:focus, a:active {
   animation: ring 4s .5s ease-in-out infinite;
 }
 
+.the-end-thank-you {
+  font-weight: 700;
+}
+.the-end-meaning {
+  font-size: 15px;
+  font-style: italic;
+  color: #f58220;
+  font-weight: 600;
+  padding-left: 10px;
+  border-left: 3px solid #f58220;
+}
 .the-end-cover {
   max-width: 700px;
 }
